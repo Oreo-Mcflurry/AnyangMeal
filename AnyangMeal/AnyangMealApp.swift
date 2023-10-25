@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct AnyangMealApp: App {
+    let coreDataManager = CoredataManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+                    .environment(\.managedObjectContext, coreDataManager.container.viewContext)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "18169065-4B0D-422A-AD8B-8AF3EC7C3F11"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DBB7B6E-F042-4296-BEBC-ECED8D13D0F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnyangMeal/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "fetchMeal()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2DBB7B6E-F042-4296-BEBC-ECED8D13D0F8 - a777aee0863ad9d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnyangMeal.ContentView.fetchMeal() -&gt; ()"
+                  moduleName = "AnyangMeal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a_mcflurry/Documents/Xcode/SwiftUI/Release/AnyangMeal/AnyangMeal/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "6404">
+               </Location>
+               <Location
+                  uuid = "2DBB7B6E-F042-4296-BEBC-ECED8D13D0F8 - a777aee0863ad9f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnyangMeal.ContentView.fetchMeal() -&gt; ()"
+                  moduleName = "AnyangMeal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a_mcflurry/Documents/Xcode/SwiftUI/Release/AnyangMeal/AnyangMeal/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "6248">
+               </Location>
+               <Location
+                  uuid = "2DBB7B6E-F042-4296-BEBC-ECED8D13D0F8 - a777aee0863ad995"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnyangMeal.ContentView.fetchMeal() -&gt; ()"
+                  moduleName = "AnyangMeal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a_mcflurry/Documents/Xcode/SwiftUI/Release/AnyangMeal/AnyangMeal/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "6500">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
