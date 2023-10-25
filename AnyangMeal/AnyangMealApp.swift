@@ -14,7 +14,7 @@ struct AnyangMealApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                MainView()
                     .environment(\.managedObjectContext, coreDataManager.container.viewContext)
             }
             .navigationViewStyle(StackNavigationViewStyle())

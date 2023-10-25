@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		0B3D1BAE2AB5C60A00C50A17 /* Meal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D1BAC2AB5C60A00C50A17 /* Meal.xcdatamodeld */; };
 		0B9C02ED2AB44A10002A8FD3 /* AnyangMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C02EC2AB44A10002A8FD3 /* AnyangMealApp.swift */; };
-		0B9C02EF2AB44A10002A8FD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C02EE2AB44A10002A8FD3 /* ContentView.swift */; };
+		0B9C02EF2AB44A10002A8FD3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C02EE2AB44A10002A8FD3 /* MainView.swift */; };
 		0B9C02F12AB44A11002A8FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9C02F02AB44A11002A8FD3 /* Assets.xcassets */; };
 		0B9C02F42AB44A11002A8FD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9C02F32AB44A11002A8FD3 /* Preview Assets.xcassets */; };
 		0B9C02FC2AB44A26002A8FD3 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 0B9C02FB2AB44A26002A8FD3 /* SwiftSoup */; };
 		0B9C02FE2AB4BC54002A8FD3 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C02FD2AB4BC54002A8FD3 /* InfoView.swift */; };
+		0BC558F12AE95D3A00A2BAFE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC558F02AE95D3A00A2BAFE /* ViewModel.swift */; };
 		0BC562602AB5C0DC008FADFA /* CoredataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC5625F2AB5C0DC008FADFA /* CoredataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,10 +36,11 @@
 		0B3D1BAD2AB5C60A00C50A17 /* Meal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Meal.xcdatamodel; sourceTree = "<group>"; };
 		0B9C02E92AB44A10002A8FD3 /* AnyangMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyangMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9C02EC2AB44A10002A8FD3 /* AnyangMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyangMealApp.swift; sourceTree = "<group>"; };
-		0B9C02EE2AB44A10002A8FD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0B9C02EE2AB44A10002A8FD3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0B9C02F02AB44A11002A8FD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B9C02F32AB44A11002A8FD3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B9C02FD2AB4BC54002A8FD3 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		0BC558F02AE95D3A00A2BAFE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		0BC5625F2AB5C0DC008FADFA /* CoredataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoredataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,13 +75,12 @@
 		0B9C02EB2AB44A10002A8FD3 /* AnyangMeal */ = {
 			isa = PBXGroup;
 			children = (
+				0BC558EB2AE95CD000A2BAFE /* View */,
 				0B3A85A12AB6E34A00BDF11E /* AnyangMeal.entitlements */,
 				0BC5625B2AB5BE38008FADFA /* Coredata */,
 				0B9C02EC2AB44A10002A8FD3 /* AnyangMealApp.swift */,
-				0B9C02EE2AB44A10002A8FD3 /* ContentView.swift */,
 				0B9C02F02AB44A11002A8FD3 /* Assets.xcassets */,
 				0B9C02F22AB44A11002A8FD3 /* Preview Content */,
-				0B9C02FD2AB4BC54002A8FD3 /* InfoView.swift */,
 			);
 			path = AnyangMeal;
 			sourceTree = "<group>";
@@ -90,6 +91,64 @@
 				0B9C02F32AB44A11002A8FD3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0BC558EB2AE95CD000A2BAFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0BC558ED2AE95D1500A2BAFE /* MainView */,
+				0BC558EC2AE95D0F00A2BAFE /* InfoView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BC558EC2AE95D0F00A2BAFE /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				0BC558F32AE95D4400A2BAFE /* View */,
+				0BC558F22AE95D3E00A2BAFE /* ViewModel */,
+			);
+			path = InfoView;
+			sourceTree = "<group>";
+		};
+		0BC558ED2AE95D1500A2BAFE /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				0BC558EF2AE95D2600A2BAFE /* View */,
+				0BC558EE2AE95D1D00A2BAFE /* ViewModel */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		0BC558EE2AE95D1D00A2BAFE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0BC558F02AE95D3A00A2BAFE /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0BC558EF2AE95D2600A2BAFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B9C02EE2AB44A10002A8FD3 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BC558F22AE95D3E00A2BAFE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0BC558F32AE95D4400A2BAFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B9C02FD2AB4BC54002A8FD3 /* InfoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0BC5625B2AB5BE38008FADFA /* Coredata */ = {
@@ -178,11 +237,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B9C02EF2AB44A10002A8FD3 /* ContentView.swift in Sources */,
+				0B9C02EF2AB44A10002A8FD3 /* MainView.swift in Sources */,
 				0B3D1BAE2AB5C60A00C50A17 /* Meal.xcdatamodeld in Sources */,
 				0BC562602AB5C0DC008FADFA /* CoredataManager.swift in Sources */,
 				0B9C02FE2AB4BC54002A8FD3 /* InfoView.swift in Sources */,
 				0B9C02ED2AB44A10002A8FD3 /* AnyangMealApp.swift in Sources */,
+				0BC558F12AE95D3A00A2BAFE /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +371,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AnyangMeal/AnyangMeal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"AnyangMeal/Preview Content\"";
 				DEVELOPMENT_TEAM = Y7F2ZW9QG3;
 				ENABLE_PREVIEWS = YES;
@@ -327,7 +387,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = InhoYoo.AnyangMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -344,7 +404,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AnyangMeal/AnyangMeal.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"AnyangMeal/Preview Content\"";
 				DEVELOPMENT_TEAM = Y7F2ZW9QG3;
 				ENABLE_PREVIEWS = YES;
@@ -360,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = InhoYoo.AnyangMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
