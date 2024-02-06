@@ -5,120 +5,152 @@
 //  Created by A_Mcflurry on 10/25/23.
 //
 
-import Foundation
-import SwiftSoup
+import UIKit
 
 class ViewModel: ObservableObject {
-  @Published var meals: [Meal] = []
-  @Published var showAlert = false
-  
-  let urlString = "https://www.anyang.ac.kr/main/activities/school-cafeteria.do"
-  let coreDataManager = CoredataManager()
-  var dateFormatter: DateFormatter {
-    let formatter = DateFormatter()
-    formatter.locale = Locale(identifier: "ko_KR")
-    formatter.dateFormat = "M월dd일(EEE)"
-    return formatter
-  }
+	@Published var meals: [Meal] = []
+	@Published var showAlert = false
+	@Published var currentPage = 0
 
-  func onFetch() {
+	init() {
+		fetchData()
+	}
 
-    let context = coreDataManager.container.viewContext
-    meals = coreDataManager.fetchAllMeals(context: context)
-    let calendar = Calendar.current
-    let currentDate = Date()
-    if let lastDate = meals.last?.date {
-      if let updatedDate = calendar.date(byAdding: .day, value: 2, to: lastDate) {
-        if updatedDate < currentDate {
-          coreDataManager.deleteAllMeals(context: context)
-          fetchMeal()
-          meals = coreDataManager.fetchAllMeals(context: context)
-        }
-      }
-    } else {
-      coreDataManager.deleteAllMeals(context: context)
-      fetchMeal()
-      meals = coreDataManager.fetchAllMeals(context: context)
-    }
+	var dateFormatter: DateFormatter {
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier: "ko_KR")
+		formatter.dateFormat = "M월dd일(EEE)"
+		return formatter
+	}
 
-  }
+	func fetchData() {
+		let url = "https://anyang-api.fly.dev/getMeals"
+		guard let apiUrl = URL(string: url) else {
+			print("Invalid URL")
+			return
+		}
 
-  func fetchMeal() {
-    if let url = URL(string: urlString) {
-      do {
-        let webString = try String(contentsOf: url)
-        let document = try SwiftSoup.parse(webString)
+		 let dateFormatter = DateFormatter()
+		 dateFormatter.dateFormat = "yyyy-MM-dd"
 
-        // 원하는 부분 선택 try
-        if let inputElement = try document.select("input#mealList").first() {
-          let value = try inputElement.attr("value")
-          let cleanedValue = value
-            .replacingOccurrences(of: "[", with: "")
-            .replacingOccurrences(of: "]", with: "")
-            .replacingOccurrences(of: "{", with: "")
-            .replacingOccurrences(of: "}", with: "")
-            .replacingOccurrences(of: "\"", with: "")
-            .replacingOccurrences(of: "/", with: "")
-            .replacingOccurrences(of: ":", with: "")
-            .replacingOccurrences(of: ",", with: "\n")
-            .replacingOccurrences(of: " ", with: "")
-            .replacingOccurrences(of: "monMain02", with: "")
-            .replacingOccurrences(of: "monSub02", with: "")
-            .replacingOccurrences(of: "tueSub02", with: "")
-            .replacingOccurrences(of: "wedSub02", with: "")
-            .replacingOccurrences(of: "thuSub02", with: "")
-            .replacingOccurrences(of: "friSub02", with: "")
+		 URLSession.shared.dataTask(with: apiUrl) { data, response, error in
+			  DispatchQueue.main.async {
+					if let data = data {
+						 do {
+							  let decoder = JSONDecoder()
+							  decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
-          let context = coreDataManager.container.viewContext
-          let keywords = ["tueMain02", "wedMain02", "thuMain02", "friMain02", "articleText"]
-          var dayMeals = keywords.reduce([cleanedValue]) { result, keyword in
-            return result.flatMap { $0.components(separatedBy: keyword) }
-          }
+							  let decodedData = try decoder.decode([Meal].self, from: data)
+							  self.meals = decodedData
 
-          // 문자열 배열의 마지막 문자열을 가져옵니다.
-          for i in 0..<dayMeals.count {
-            if dayMeals[i].last == "\n" {
-              dayMeals[i].removeLast()
-            }
-          }
-          let dates = getThisWeekDates()
+							 for index in 0..<self.meals.count {
+								 if self.meals[index].meal.day == Date() {
+									 self.currentPage = index
+									 break;
+								 }
+							 }
+						 } catch {
+							  print("Error decoding JSON: \(error)")
+						 }
+					} else if let error = error {
+						 print("Error fetching data: \(error)")
+					}
+			  }
+		 }.resume()
+	}
 
-          let count =  min(dayMeals.count, 5)
+#if os(iOS)
+	func getDeviceID() -> String {
+		let device = UIDevice.current
+		let identifier = device.identifierForVendor?.uuidString
+		return identifier ?? "N/A"
+	}
 
-          for i in 0..<count {
-            coreDataManager.addMeal(date: dates[i], meal: dayMeals[i], context: context)
-          }
+	func addDeviceToMealLike(_id : String) {
+		guard let url = URL(string: "https://anyang-api.fly.dev/addDeviceToMealLike") else {
+			print("Invalid URL")
+			return
+		}
 
-        }
-      } catch {
-        print("에러 발생: \(error.localizedDescription)")
-      }
-    }
-  }
-  func getThisWeekDates() -> [Date] {
-    var calendar = Calendar.current
-    calendar.firstWeekday = 2 // 월요일을 첫 번째 요일로 설정
-    var currentDate = Date()
+		let requestData = ["_id": _id, "deviceId": getDeviceID()]
+		let jsonData = try? JSONSerialization.data(withJSONObject: requestData)
 
-    // 이번 주의 시작 날짜 계산
-    let startDate = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate))!
+		var request = URLRequest(url: url)
+		request.httpMethod = "POST"
+		request.httpBody = jsonData
+		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-    // 이번 주의 끝 날짜 계산
-    let endDate = calendar.date(byAdding: .day, value: 6, to: startDate)!
+		// 네트워크 호출
+		URLSession.shared.dataTask(with: request) { data, response, error in
+			DispatchQueue.main.async {
+				if let data = data {
+					// 응답 데이터 처리
+					do {
+						let response = try JSONDecoder().decode(ResponseModel.self, from: data)
+						print(response.message)
+						self.fetchData()
+					} catch {
+						print("Error decoding JSON: \(error)")
+					}
+				} else if let error = error {
+					print("Error making network request: \(error)")
+				}
+			}
+		}.resume()
+	}
 
-    // 이번 주의 날짜 목록 생성
-    var dates: [Date] = []
-    currentDate = startDate
+	func removeDeviceFromMealLike(_id: String) {
+		 guard let url = URL(string: "https://anyang-api.fly.dev/removeDeviceFromMealLike") else {
+			  print("Invalid URL")
+			  return
+		 }
 
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale(identifier: "ko_KR")
-    dateFormatter.dateFormat = "YYYY-MM-dd" // "9월15일(금)" 형식 M월dd일(EEE)
-    while currentDate <= endDate {
-      dates.append(currentDate)
-      currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+		 let requestData = ["_id": _id, "deviceId": getDeviceID()]
+		 let jsonData = try? JSONSerialization.data(withJSONObject: requestData)
 
-    }
+		 var request = URLRequest(url: url)
+		 request.httpMethod = "DELETE" // HTTP 메서드를 DELETE로 설정
+		 request.httpBody = jsonData
+		 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-    return dates
-  }
+		 // 네트워크 호출
+		 URLSession.shared.dataTask(with: request) { data, response, error in
+			  DispatchQueue.main.async {
+					if let data = data {
+						 // 응답 데이터 처리
+						 do {
+							  let response = try JSONDecoder().decode(ResponseModel.self, from: data)
+							  print(response.message)
+							  self.fetchData()
+						 } catch {
+							  print("Error decoding JSON: \(error)")
+						 }
+					} else if let error = error {
+						 print("Error making network request: \(error)")
+					}
+			  }
+		 }.resume()
+	}
+#endif
+}
+
+struct Meal: Decodable {
+	 let id: String
+	 let meal: MealDetail
+
+	enum CodingKeys: String, CodingKey {
+		case id = "_id"
+		case meal
+	}
+}
+
+struct MealDetail: Decodable {
+	 let day: Date
+	 let menu: String
+	 let likeDevice: [String]
+}
+
+struct ResponseModel: Decodable {
+	 let success: Bool
+	 let message: String
 }

@@ -10,14 +10,12 @@ import CoreData
 
 @main
 struct AnyangMealApp: App {
-    let coreDataManager = CoredataManager()
-    var body: some Scene {
-        WindowGroup {
-            NavigationView {
-                MainView()
-                    .environment(\.managedObjectContext, coreDataManager.container.viewContext)
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
-        }
-    }
+	var body: some Scene {
+		WindowGroup {
+			NavigationView {
+				MainView()
+			}
+			.navigationViewStyle(StackNavigationViewStyle())
+		}
+	}
 }

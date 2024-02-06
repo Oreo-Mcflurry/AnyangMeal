@@ -9,11 +9,10 @@ import SwiftUI
 
 struct InfoView: View {
   @StateObject var viewModel = ViewModel()
-  let coreDataManager = CoredataManager()
   var body: some View {
     List {
       Section {
-        Text("학식 : ₩5,000\n라면 : ₩3,000\n치즈, 떡라면 : ₩3,500\n떡+치즈라면 : ₩4,000")
+        Text("학식 : ₩5,000\n우동 : ₩3000\n라면 : ₩3,000\n치즈, 떡라면 : ₩3,500\n떡+치즈라면 : ₩4,000")
       } header: {
         Text("가격")
       }
@@ -39,24 +38,6 @@ struct InfoView: View {
         Text("개발자의 한마디")
       }
 
-      Section {
-        Button("학식 정보 리셋하기") {
-          viewModel.onFetch()
-          viewModel.showAlert = true
-        }
-        .foregroundColor(.red)
-      } header: {
-        Text("학식 정보가 이상해요")
-      }
-
-    }
-    .alert(isPresented: $viewModel.showAlert) {
-      Alert(
-        title: Text("학식 정보 리셋을 완료하였습니다."),
-        dismissButton: .default(Text("확인")) {
-          viewModel.showAlert = false
-        }
-      )
     }
   }
 }
