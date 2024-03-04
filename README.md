@@ -1,6 +1,6 @@
 # 아냥식(Anyang Meal)
 
-> ***[앱스토어 링크](https://apps.apple.com/kr/app/%EC%95%84%EB%83%A5%EC%8B%9D/id6466650207)** <br>***개발기간 : 2023.09 ~ ing**
+> ***[앱스토어 링크](https://apps.apple.com/kr/app/%EC%95%84%EB%83%A5%EC%8B%9D/id6466650207)** <br>***개발기간 : 2023.09 ~ 2024.03**
 
 
 ## 프로젝트 소개
