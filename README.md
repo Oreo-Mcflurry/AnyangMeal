@@ -13,6 +13,7 @@
 
 
 
+
 ---
 ## 기술 스택 (Tech Stack)
 
@@ -33,7 +34,7 @@
 ## 화면 구성 📺
 |메인 화면|정보 확인|
 | :------------: | :------------: | 
-|![IMG_0281](https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/fdff9a88-caf4-4034-a82d-3949e9ad7ce6)|![IMG_0282](https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/c2fd30c6-562c-4801-a840-dacff3c32f5b)|
+|<img src="https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/12a6d19b-7372-4a97-801f-09ae093b633e" alt="스크린샷 2023-12-13 13 35 2" width="300" />|<img src="https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/d0150006-4d6a-484f-9d1f-0928875bc623" alt="스크린샷 2023-12-13 13 35 3" width="300" />|
 
 
 
@@ -42,7 +43,7 @@
 
 #### ⭐️ 메인화면
 - 일주일치의 학식정보를 받아올 수 있습니다.
-
+- 좋아요를 통해 다른 학우들의 관심도를 보고, 유난히 좋아요가 많다면 한번 먹어볼까 라는 호기심을 가져볼 수 있습니다.
 
 #### ⭐️ 정보확인 
 - 학식의 가격과 운영시간, 안내사항을 안내합니다.
