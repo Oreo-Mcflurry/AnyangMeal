@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct AnyangMealWatch_Watch_AppApp: App {
     var body: some Scene {

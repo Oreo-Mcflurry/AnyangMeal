@@ -10,30 +10,46 @@ import SwiftUI
 struct ContentView: View {
 	@ObservedObject var viewModel = ViewModel()
     var body: some View {
-		 TabView(selection: $viewModel.currentPage) {
-			 ForEach(0..<viewModel.meals.count, id: \.self) { index in
-				 List {
-					 Text(viewModel.meals[index].meal.day, formatter: viewModel.dateFormatter)
-					 Text(viewModel.meals[index].meal.menu)
-						 .lineSpacing(4)
-				 }
-			 }
-		 }
+		 mainView
     }
+
+	@ViewBuilder
+	private var mainView: some View {
+		switch viewModel.responseState {
+		case .successAndEmptry:
+			mealEmptyView
+		case .fail:
+			mealFailView
+		case .success:
+			successView
+		}
+	}
+
+	private var mealEmptyView: some View {
+		Text("학식 정보가 없습니다.")
+			.multilineTextAlignment(.center)
+			.font(.title)
+	}
+
+	private var mealFailView: some View {
+		Text("학식 정보를 받아오는데 실패하였습니다.")
+			.multilineTextAlignment(.center)
+			.font(.title)
+	}
+
+	private var successView: some View {
+		TabView(selection: $viewModel.currentPage) {
+			ForEach(0..<viewModel.meals!.data!.count, id: \.self) { index in
+				List {
+					Text(viewModel.meals!.data![index].meal.day, formatter: DateFormatter.formatDate)
+					Text(viewModel.meals!.data![index].meal.menu)
+						.lineSpacing(4)
+				}
+			}
+		}
+	}
 }
 
 #Preview {
     ContentView()
 }
-
-//if viewModel.meals.isEmpty {
-//	Text("학식 정보가 없습니다.\n이번주가 휴무 이거나,\n방학일 가능성이 있습니다.\n\n\n그것도 아니라면\n개발자가 열심히 작업중입니다.")
-//		.multilineTextAlignment(.center)
-//} else {
-//	ForEach(0..<viewModel.meals.count, id: \.self) { index in
-//		Section {
-//			Text(viewModel.meals[index].meal.day, formatter: viewModel.dateFormatter)
-//			Text(viewModel.meals[index].meal.menu)
-//		}
-//	}
-// }

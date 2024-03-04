@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct InfoView: View {
-  @StateObject var viewModel = ViewModel()
   var body: some View {
     List {
       Section {
@@ -37,13 +36,6 @@ struct InfoView: View {
       } header: {
         Text("개발자의 한마디")
       }
-
     }
-  }
-}
-
-struct InfoView_Previews: PreviewProvider {
-  static var previews: some View {
-    InfoView()
   }
 }

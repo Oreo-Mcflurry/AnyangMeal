@@ -9,64 +9,85 @@ import SwiftUI
 
 struct MainView: View {
 	@StateObject var viewModel = ViewModel()
-	@Environment(\.colorScheme) var colorScheme
+
 	var body: some View {
 		mainView
-			.toolbar {
-				ToolbarItem(placement: .navigationBarTrailing) {
-					NavigationLink {
-						InfoView()
-					} label: {
-						Image(systemName: "info.circle")
-					}
-				}
-			}
 			.navigationTitle("아냥식")
 			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem(placement: .navigationBarTrailing) { infoNavigation }
+			}
 	}
 
 	@ViewBuilder
 	private var mainView: some View {
-		if viewModel.meals.isEmpty {
-			Text("학식 정보가 없습니다.\n이번주가 휴무 이거나,\n방학일 가능성이 있습니다.\n\n\n그것도 아니라면\n개발자가 열심히 작업중입니다.")
-				.multilineTextAlignment(.center)
-				.font(.title)
-		} else {
-			List {
-				ForEach(0..<viewModel.meals.count, id: \.self) { index in
-					Section {
+		switch viewModel.responseState {
+		case .successAndEmptry:
+			mealEmptyView
+		case .fail:
+			mealFailView
+		case .success:
+			mealView
+		}
+	}
 
-						Text(viewModel.meals[index].meal.day, formatter: viewModel.dateFormatter)
-							.foregroundStyle(.secondary)
-						Text(viewModel.meals[index].meal.menu)
-							.lineSpacing(5)
+	@ViewBuilder
+	private var infoNavigation: some View {
+		NavigationLink {
+			InfoView()
+		} label: {
+			Image(systemName: "info.circle")
+		}
+	}
 
-						Button {
-							if viewModel.meals[index].meal.likeDevice.contains(viewModel.getDeviceID()) {
-								viewModel.removeDeviceFromMealLike(_id: viewModel.meals[index].id)
-							} else {
-								viewModel.addDeviceToMealLike(_id: viewModel.meals[index].id)
-							}
-						} label: {
-							HStack {
-								Image(systemName: viewModel.meals[index].meal.likeDevice.contains(viewModel.getDeviceID()) ? "hand.thumbsup.fill" : "hand.thumbsup")
-								Text("\(viewModel.meals[index].meal.likeDevice.count)")
-							}
-							.foregroundStyle(colorScheme == .dark ? .white : .black)
+	private var mealEmptyView: some View {
+		Text("학식 정보가 없습니다.")
+			.multilineTextAlignment(.center)
+			.font(.title)
+	}
 
-						}
+	private var mealFailView: some View {
+		Text("학식 정보를 받아오는데 실패하였습니다.")
+			.multilineTextAlignment(.center)
+			.font(.title)
+	}
 
-					}
+	private var mealView: some View {
+		List {
+			if let data = viewModel.meals?.data {
+				ForEach(data.indices, id: \.self) { index in
+					MealView(meal: data[index])
 				}
 			}
 		}
 	}
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-           MainView()
-        }
-    }
+struct MealView: View {
+	@Environment(\.colorScheme) var colorScheme
+	@StateObject var viewModel = ViewModel()
+	let meal: Meal
+
+	var body: some View {
+		Section {
+			Text(meal.meal.day, formatter: DateFormatter.formatDate)
+				.foregroundStyle(.secondary)
+			Text(meal.meal.menu)
+				.lineSpacing(5)
+
+			Button {
+				if viewModel.isLiked(meal) {
+					viewModel.callRequest(.cancelLike(id: meal.id))
+				} else {
+					viewModel.callRequest(.like(id: meal.id))
+				}
+			} label: {
+				HStack {
+//					Image(systemName: meal.likeDevice.contains(viewModel.getDeviceID()) ? "hand.thumbsup.fill" : "hand.thumbsup")
+					Text("\(meal.meal.likeDevice.count)")
+				}
+				.foregroundStyle(colorScheme == .dark ? .white : .black)
+			}
+		}
+	}
 }

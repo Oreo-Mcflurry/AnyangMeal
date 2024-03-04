@@ -13,11 +13,21 @@
 		0B2ECC9C2B296DD100F74397 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B2ECC9B2B296DD100F74397 /* Preview Assets.xcassets */; };
 		0B2ECC9F2B296DD100F74397 /* AnyangMealWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0B2ECC922B296DCF00F74397 /* AnyangMealWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0B2ECCA42B296DE900F74397 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC558F02AE95D3A00A2BAFE /* ViewModel.swift */; };
+		0B8EE9802B95E3A00054FA50 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EE97F2B95E3A00054FA50 /* APIRequestManager.swift */; };
+		0B8EE9832B95EC630054FA50 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EE9822B95EC630054FA50 /* MealModel.swift */; };
+		0B8EE9842B95F2D00054FA50 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EE9822B95EC630054FA50 /* MealModel.swift */; };
+		0B8EE9852B95F2DD0054FA50 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EE97F2B95E3A00054FA50 /* APIRequestManager.swift */; };
+		0B8EE9862B95F3090054FA50 /* AnyangMealURLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6C1212B73661800D93950 /* AnyangMealURLS.swift */; };
 		0B9C02ED2AB44A10002A8FD3 /* AnyangMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C02EC2AB44A10002A8FD3 /* AnyangMealApp.swift */; };
 		0B9C02EF2AB44A10002A8FD3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C02EE2AB44A10002A8FD3 /* MainView.swift */; };
 		0B9C02F12AB44A11002A8FD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9C02F02AB44A11002A8FD3 /* Assets.xcassets */; };
 		0B9C02F42AB44A11002A8FD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9C02F32AB44A11002A8FD3 /* Preview Assets.xcassets */; };
 		0B9C02FE2AB4BC54002A8FD3 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C02FD2AB4BC54002A8FD3 /* InfoView.swift */; };
+		0BB6C1162B7361A500D93950 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6C1152B7361A500D93950 /* View+Extension.swift */; };
+		0BB6C1172B7361BF00D93950 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6C1152B7361A500D93950 /* View+Extension.swift */; };
+		0BB6C11C2B73659000D93950 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB6C11B2B73659000D93950 /* Alamofire */; };
+		0BB6C11E2B7365CB00D93950 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB6C11D2B7365CB00D93950 /* Alamofire */; };
+		0BB6C1222B73661800D93950 /* AnyangMealURLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6C1212B73661800D93950 /* AnyangMealURLS.swift */; };
 		0BC558F12AE95D3A00A2BAFE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC558F02AE95D3A00A2BAFE /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,12 +73,16 @@
 		0B2ECC9B2B296DD100F74397 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B2ECCA52B29753000F74397 /* AnyangMealWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AnyangMealWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		0B3A85A12AB6E34A00BDF11E /* AnyangMeal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnyangMeal.entitlements; sourceTree = "<group>"; };
+		0B8EE97F2B95E3A00054FA50 /* APIRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
+		0B8EE9822B95EC630054FA50 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		0B9C02E92AB44A10002A8FD3 /* AnyangMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyangMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9C02EC2AB44A10002A8FD3 /* AnyangMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyangMealApp.swift; sourceTree = "<group>"; };
 		0B9C02EE2AB44A10002A8FD3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0B9C02F02AB44A11002A8FD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B9C02F32AB44A11002A8FD3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B9C02FD2AB4BC54002A8FD3 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		0BB6C1152B7361A500D93950 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		0BB6C1212B73661800D93950 /* AnyangMealURLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyangMealURLS.swift; sourceTree = "<group>"; };
 		0BC558F02AE95D3A00A2BAFE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB6C11E2B7365CB00D93950 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB6C11C2B73659000D93950 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +126,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0B8EE9812B95EC5A0054FA50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B8EE9822B95EC630054FA50 /* MealModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0B9C02E02AB44A10002A8FD3 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +155,9 @@
 		0B9C02EB2AB44A10002A8FD3 /* AnyangMeal */ = {
 			isa = PBXGroup;
 			children = (
+				0B8EE9812B95EC5A0054FA50 /* Model */,
+				0BB6C1192B73657C00D93950 /* Service */,
+				0BB6C1142B73619300D93950 /* Extension */,
 				0BC558EB2AE95CD000A2BAFE /* View */,
 				0B3A85A12AB6E34A00BDF11E /* AnyangMeal.entitlements */,
 				0B9C02EC2AB44A10002A8FD3 /* AnyangMealApp.swift */,
@@ -148,6 +175,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0BB6C1142B73619300D93950 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0BB6C1152B7361A500D93950 /* View+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0BB6C1192B73657C00D93950 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0BB6C1212B73661800D93950 /* AnyangMealURLS.swift */,
+				0B8EE97F2B95E3A00054FA50 /* APIRequestManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		0BC558EB2AE95CD000A2BAFE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				0BC558F32AE95D4400A2BAFE /* View */,
-				0BC558F22AE95D3E00A2BAFE /* ViewModel */,
 			);
 			path = InfoView;
 			sourceTree = "<group>";
@@ -191,13 +234,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0BC558F22AE95D3E00A2BAFE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		0BC558F32AE95D4400A2BAFE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +258,9 @@
 			dependencies = (
 			);
 			name = "AnyangMealWatch Watch App";
+			packageProductDependencies = (
+				0BB6C11D2B7365CB00D93950 /* Alamofire */,
+			);
 			productName = "AnyangMealWatch Watch App";
 			productReference = 0B2ECC922B296DCF00F74397 /* AnyangMealWatch Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -243,6 +282,7 @@
 			);
 			name = AnyangMeal;
 			packageProductDependencies = (
+				0BB6C11B2B73659000D93950 /* Alamofire */,
 			);
 			productName = AnyangMeal;
 			productReference = 0B9C02E92AB44A10002A8FD3 /* AnyangMeal.app */;
@@ -256,7 +296,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					0B2ECC912B296DCF00F74397 = {
 						CreatedOnToolsVersion = 15.1;
@@ -276,6 +316,7 @@
 			);
 			mainGroup = 0B9C02E02AB44A10002A8FD3;
 			packageReferences = (
+				0BB6C11A2B73659000D93950 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 0B9C02EA2AB44A10002A8FD3 /* Products */;
 			projectDirPath = "";
@@ -313,8 +354,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8EE9852B95F2DD0054FA50 /* APIRequestManager.swift in Sources */,
+				0B8EE9862B95F3090054FA50 /* AnyangMealURLS.swift in Sources */,
+				0B8EE9842B95F2D00054FA50 /* MealModel.swift in Sources */,
 				0B2ECC972B296DCF00F74397 /* ContentView.swift in Sources */,
 				0B2ECCA42B296DE900F74397 /* ViewModel.swift in Sources */,
+				0BB6C1172B7361BF00D93950 /* View+Extension.swift in Sources */,
 				0B2ECC952B296DCF00F74397 /* AnyangMealWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,8 +368,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8EE9802B95E3A00054FA50 /* APIRequestManager.swift in Sources */,
+				0BB6C1222B73661800D93950 /* AnyangMealURLS.swift in Sources */,
+				0B8EE9832B95EC630054FA50 /* MealModel.swift in Sources */,
 				0B9C02EF2AB44A10002A8FD3 /* MainView.swift in Sources */,
 				0B9C02FE2AB4BC54002A8FD3 /* InfoView.swift in Sources */,
+				0BB6C1162B7361A500D93950 /* View+Extension.swift in Sources */,
 				0B9C02ED2AB44A10002A8FD3 /* AnyangMealApp.swift in Sources */,
 				0BC558F12AE95D3A00A2BAFE /* ViewModel.swift in Sources */,
 			);
@@ -416,6 +465,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -476,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -623,6 +674,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0BB6C11A2B73659000D93950 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BB6C11B2B73659000D93950 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BB6C11A2B73659000D93950 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0BB6C11D2B7365CB00D93950 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BB6C11A2B73659000D93950 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0B9C02E12AB44A10002A8FD3 /* Project object */;
 }
