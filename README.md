@@ -9,7 +9,7 @@
 이를 개선하기 위해 바로 학식의 정보를 바로 알려줄 수 있는 앱을 만들었습니다.
 
 ### 앱스토어 인기차트 153위 등극!
-<img src="https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/57aea081-6d02-4a07-a06b-6b8cc0e16801" alt="IMG_0546" width="300" height="200" />
+<img src="https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/57aea081-6d02-4a07-a06b-6b8cc0e16801" alt="IMG_0546" width="300" height="400" />
 
 
 
