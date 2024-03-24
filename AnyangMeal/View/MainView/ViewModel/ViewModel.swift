@@ -26,19 +26,27 @@ class ViewModel: ObservableObject {
 	}
 
 	enum ResponseKind {
+		case load
 		case successAndEmptry
 		case fail
 		case success
 	}
 
 	var responseState: ResponseKind {
+
+		if meals?.data == nil && meals?.error == nil {
+			return .load
+		}
+
 		if let data = meals?.data, !data.isEmpty {
 			return .success
-		} else if (meals?.error) != nil {
-			return .fail
-		} else {
-			return .successAndEmptry
 		}
+
+		if (meals?.error) != nil {
+			return .fail
+		}
+		
+		return .successAndEmptry
 	}
 
 #if os(iOS)

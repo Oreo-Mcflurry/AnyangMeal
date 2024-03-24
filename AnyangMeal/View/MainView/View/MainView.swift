@@ -28,6 +28,8 @@ struct MainView: View {
 			mealFailView
 		case .success:
 			mealView
+		case .load:
+			mealloadView
 		}
 	}
 
@@ -38,6 +40,12 @@ struct MainView: View {
 		} label: {
 			Image(systemName: "info.circle")
 		}
+	}
+
+	private var mealloadView: some View {
+		Text("학식 정보가 없습니다.")
+			.multilineTextAlignment(.center)
+			.font(.title)
 	}
 
 	private var mealEmptyView: some View {

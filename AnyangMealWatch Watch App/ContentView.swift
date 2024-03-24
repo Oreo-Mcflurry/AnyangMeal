@@ -22,7 +22,15 @@ struct ContentView: View {
 			mealFailView
 		case .success:
 			successView
+		case .load:
+			mealLoadView
 		}
+	}
+
+	private var mealLoadView: some View {
+		Text("학식 정보를 불러오고 있습니다.")
+			.multilineTextAlignment(.center)
+			.font(.title)
 	}
 
 	private var mealEmptyView: some View {
