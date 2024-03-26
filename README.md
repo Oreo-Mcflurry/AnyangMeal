@@ -12,7 +12,7 @@
 
 ![스크린샷 2024-03-25 02 11 01](https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/6865970c-168d-4f71-a66d-73e10c26af5d)
 
-## 🔗 깃허브 & 앱스토어 링크 (중단)
+## 🔗 앱스토어 링크 (중단)
 
 [<img width="220" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://user-images.githubusercontent.com/55099365/196023806-5eb7be0f-c7cf-4661-bb39-35a15146c33a.png">](https://apps.apple.com/kr/app/%EC%95%84%EB%83%A5%EC%8B%9D/id6466650207)
 
