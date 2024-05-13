@@ -91,7 +91,7 @@ struct MealView: View {
 				}
 			} label: {
 				HStack {
-//					Image(systemName: meal.likeDevice.contains(viewModel.getDeviceID()) ? "hand.thumbsup.fill" : "hand.thumbsup")
+					Image(systemName: viewModel.isLiked(meal) ? "hand.thumbsup.fill" : "hand.thumbsup")
 					Text("\(meal.meal.likeDevice.count)")
 				}
 				.foregroundStyle(colorScheme == .dark ? .white : .black)
