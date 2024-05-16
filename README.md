@@ -10,7 +10,8 @@
 
 </aside>
 
-![anyanh](https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/2a2fb42e-601a-4d92-94fe-cfa5942f9bcc)
+![ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ](https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/c86aa0b1-6699-4d99-b30f-cb3ca2b4b2af)
+
 
 
 ## 🔗 앱스토어 링크 (중단)
