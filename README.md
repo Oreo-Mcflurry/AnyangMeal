@@ -114,3 +114,23 @@ private var mainView: some View {
 }
 ~~~
 
+### 🗂️ 폴더 구조
+
+~~~
+📦AnyangMeal
+ ┣ 📂Extension
+ ┣ 📂Model
+ ┣ 📂Service
+ ┣ 📂View
+ ┃ ┣ 📂InfoView
+ ┃ ┃ ┗ 📂View
+ ┃ ┗ 📂MainView
+ ┃ ┣ 📂View
+ ┗ ┃ ┗ 📂ViewModel
+~~~
+
+### 📺 앱 구동 화면
+| 뷰 | 이미지 |
+| --- | --- |
+| 메인 뷰 | <img src="https://github.com/Oreo-Mcflurry/AnyangMeal/assets/96654328/7b951b82-65d4-4bbc-958c-289bc0094ee7" width="188" height="408"> |
+
