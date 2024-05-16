@@ -20,6 +20,13 @@
 ## 🧑‍🤝‍🧑 팀구성
 
 - 1인 개발
+- iOS 15.0+
+- watchOS 9.0+
+
+### 🥕 기능
+
+- 학식 정보를 받아오는 기능
+- 좋아요 기능
 
 ### 🔨 기술 스택 및 사용한 라이브러리
 
@@ -34,13 +41,75 @@
 - 기존에는 SwiftSoup와 CoreData를 이용하여 일주일에 한번 웹 사이트를 크롤링 해오는 식으로 구현
 - 학교 서버에 대한 부담을 덜기 위함과, 좋아요 기능등의 추가를 이유로 Node.js 서버를 만들어 도입
 
-
 ### 🌠 Trouble Shooting 및 배운 점
 
-- 기존에는 서버에서 학식 정보를 받아오기 전 까지 ‘학식 정보가 없습니다’를 보여주었으나, 서버의 성능이 좋지 않은 탓에 유저는 오랫동안 정보가 없다는 문구만 보고있었어야 했었음
-- 이를 해결하기 위해 Alamofire와 CompletionHandler 클로저 구문을 이용하여 서버에서 정보를 받기 전 / 후로 나뉘어 ‘학식 정보를 불러오고 있습니다’ 와 ‘학식 정보가 없습니다’를 분리하여 UI/UX를 개선
+#### 1. 기존에는 SwiftSoup을 이용하여 앱을 켤때마다 크롤링을 했었지만, Node.js 서버를 도입하여 크롤링을 일주일에 한번으로 서버의 부하를 줄임
 
-### 📋 Post Mortem
+#### 이전 코드
+~~~swift
+func fetchMeal() {
+    if let url = URL(string: urlString) {
+        do {
+            let webString = try String(contentsOf: url)
+            let document = try SwiftSoup.parse(webString)
 
-- 아쉬웠던 점
-  - 업데이트 하고 싶은 기능이 많았는데, 전부 해보지 못하고 중단하게 된 점이 아쉬움
+            if let inputElement = try document.select("input#mealList").last() {
+                let value = try inputElement.attr("value")
+   // ....
+}
+~~~
+
+#### 수정 후 코드
+
+~~~swift
+func callRequest(_ kind: APIURLs) {
+		let manager = APIRequestManager()
+		manager.callRequest(kind.type, api: kind) { result, error in
+			if case .call = kind {
+				self.meals?.data = result as? [Meal]
+			}
+			self.meals?.error = error
+		}
+	}
+~~~
+
+#### 2. 서버의 속도가 빠르질 않아 기존에는 서버에서 정보를 받아오기까지 ‘학식 정보가 없습니다’를 보여주었으나, Request구문에서 정보를 받기 전 / 후로 나누어 사용자 경험 개선
+
+#### 이전 코드
+~~~swift
+Group {
+    if meals.isEmpty {
+        Text("학식 정보가 없습니다.\n이번주가 휴무 이거나,\n방학일 가능성이 있습니다.\n\n\n그것도 아니라면\n개발자가 열심히 작업중입니다.")
+            .multilineTextAlignment(.center)
+            .font(.title)
+    } else {
+        List {
+            ForEach(meals, id: \.self) { item in
+                Section {
+                    Text(item.date ?? Date(), formatter: dateformatter)
+                        .foregroundStyle(.secondary)
+                    Text(item.meal ?? "정보없음")
+                }
+            }
+        }
+    }
+}
+~~~
+
+#### 수정 후 코드
+~~~swift
+@ViewBuilder
+private var mainView: some View {
+    switch viewModel.responseState {
+    case .successAndEmptry:
+        mealEmptyView
+    case .fail:
+        mealFailView
+    case .success:
+        mealView
+    case .load:
+        mealloadView
+    }
+}
+~~~
+
